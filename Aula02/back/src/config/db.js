@@ -1,5 +1,5 @@
 import pkg from "pg";
-const {pool} = pkg;
+const {Pool} = pkg;
 
 const db = new Pool(
     {
