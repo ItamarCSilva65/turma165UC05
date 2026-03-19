@@ -13,7 +13,7 @@ export default function FilmeCard({filme}){
                     <p>Gênero: {filme.genero}</p>
                     <p>Ano: {filme.ano}</p>
                 </div>
-                <Link to={`/Filmes/$(filme.id}`}>Ver detalhes</Link>
+                <Link to={`/Filmes/${filme.id}`} className="filme-card-link">Ver detalhes</Link>
             </article>
         </>
     )

@@ -5,7 +5,8 @@ import "./FilmesUsuarioPage.css";
 
 
 export default function FilmesUsuarioPage(){
-     const [filmes, setFilmes] = useState([]); 
+     const [filmes, setFilmes] = useState([]);
+     const [busca, setBusca] = useState("");
  async function carregarFilmes() {
         try {
             const response = await listarFilmes();
@@ -17,6 +18,12 @@ export default function FilmesUsuarioPage(){
     useEffect(() => {
         carregarFilmes();
     }, [])
+    
+    /* Filto de busca */
+    const filmesFiltrados = filmes.filter((filme)=>
+    filme.titulo.toLowerCase().includes(busca.toLowerCase())
+    );
+
 
     return(
         <>
@@ -24,8 +31,16 @@ export default function FilmesUsuarioPage(){
             <section className="cabecalho-usuario">
                 <h1> Catalogo de Filmes</h1>
                 <p>Confira os filmes disponíveis no catálogo</p>
+                <div className="busca-box">
+                    <input
+                        type="text"
+                        value={busca}
+                        placeholder="Buscar filme..."
+                        onChange={(e)=> setBusca(e.target.value)}
+                        />
+                </div>
             </section>
-              <FilmeList filmes={filmes} />
+              <FilmeList filmes={filmesFiltrados} />
         </main>          
         </>
     )

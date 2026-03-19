@@ -3,8 +3,8 @@ export default function Header(){
     return(
         <>
             <header className="header">
-                <div className="header-content">
-                <h1> icon Filmes</h1>
+                <div className=" container header-content">
+                <h1>Itamar Filmes LLC</h1>
                 <nav>
                     <ul className="menu">
                         <li>

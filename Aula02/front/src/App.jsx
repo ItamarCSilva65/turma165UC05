@@ -1,23 +1,29 @@
 import React from "react";
-import {BrowserRouter, Routes, Route} from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import AdminFilmesPage from "./pages/admin/AdminFilmesPage";
 import FilmesUsuarioPage from "./pages/user/FilmesUsuarioPage";
 import FilmeDetalhePage from "./pages/FilmeDetaalhePage/FilmeDetalhePage";
 import Header from "./components/Layout/Header";
 import Footer from "./components/Layout/Footer";
 
-export default function App(){
-  return(
+export default function App() {
+  return (
     <>
+
       <BrowserRouter>
-      <Header/>
-        <Routes>
-            <Route path="/" element={<FilmesUsuarioPage/>} />
-            <Route path="/filmes/:id" element={<FilmeDetalhePage />} />
-            <Route path="/admin" element={<AdminFilmesPage/>} />
-        </Routes>
-        <Footer />
+        <div className="app-shell">
+          <Header />
+          <main className="app-content">
+            <Routes>
+              <Route path="/" element={<FilmesUsuarioPage />} />
+              <Route path="/filmes/:id" element={<FilmeDetalhePage />} />
+              <Route path="/admin" element={<AdminFilmesPage />} />
+            </Routes>
+          </main>
+          <Footer />
+        </div>
       </BrowserRouter>
+
     </>
   )
 }
