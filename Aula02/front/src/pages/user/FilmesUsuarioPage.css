@@ -21,7 +21,7 @@
 }
 
 .busca-box input{
-   width: 100%;
+   width: 16.25rem;
    padding: .75rem;
    border-radius: 0.5rem;
    border: .0625rem solid #ccc;
@@ -30,6 +30,28 @@
 
 .busca-box input:focus{
     border-color: #2563eb;
+}
+.ordenacao-botoes{
+    display: flex;
+    gap: .625rem;
+    flex-wrap: wrap;
+}
+.ordenacao-botoes button{
+    padding: .625rem .875rem;
+    border: none;
+    border-radius: .5rem;
+    background-color: #e5e7eb;
+    color: #111827;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.ordenacao-botoes button:hover{
+    background-color: #2562eb;
+    color: white;
+}
+.ordenacao-botoes button.ativo{
+    background-color: #2562eb;
+    color: white;
 }
 
 .grid-filmes {
