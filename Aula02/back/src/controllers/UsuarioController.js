@@ -120,9 +120,18 @@ export class UsuarioController {
                 sameSite: "lax",
                 maxAge: 60*60*1000 //1h
             });
-            res.status(200).json({msg:"Login realizado com sucesso", usuario: usuario.nome, token: token});
+            res.status(200).json({msg: "Login realizado com sucesso", usuario: {id: usuario.id, nome: usuario.nome, role: usuario.role },
+                token: token});
         } catch (error) {
             res.status(500).json({msg: "Erro interno ao realizar login", erro: error.message});
+        }
+    }
+    static async me(req, res){
+        try {
+            res.status(200).json({msg: "Dados encontrados", usuario:req.usuario});
+            return
+        } catch (error) {
+            res.status(500).json({msg: "Erro ao buscar usuário logado", erro: error.message});
         }
     }
 
